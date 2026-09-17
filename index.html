@@ -5,9 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Cash Arena | Play, Win & Instant Cashout</title>
   
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="dp.jpg" />
+  <link rel="apple-touch-icon" href="dp.jpg" />
+
   <!-- Google Fonts & Tailwind CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@600;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
@@ -45,19 +49,19 @@
     body {
       background-color: #0b0612;
       background-image: 
-        radial-gradient(circle at 10% 10%, rgba(255, 46, 147, 0.18) 0px, transparent 400px),
-        radial-gradient(circle at 90% 20%, rgba(255, 215, 0, 0.14) 0px, transparent 400px),
-        radial-gradient(circle at 50% 90%, rgba(138, 43, 226, 0.2) 0px, transparent 500px);
+        radial-gradient(circle at 10% 10%, rgba(255, 46, 147, 0.22) 0px, transparent 450px),
+        radial-gradient(circle at 90% 20%, rgba(255, 215, 0, 0.18) 0px, transparent 450px),
+        radial-gradient(circle at 50% 90%, rgba(138, 43, 226, 0.22) 0px, transparent 500px);
       background-attachment: fixed;
       color: #FFFFFF;
     }
 
     .neon-border-pink {
-      box-shadow: 0 0 15px rgba(255, 46, 147, 0.3);
+      box-shadow: 0 0 16px rgba(255, 46, 147, 0.35);
     }
 
     .neon-border-yellow {
-      box-shadow: 0 0 18px rgba(255, 215, 0, 0.35);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.35);
     }
 
     .text-glow-yellow {
@@ -69,7 +73,7 @@
     }
 
     .glass-card {
-      background: rgba(28, 16, 44, 0.7);
+      background: rgba(28, 16, 44, 0.72);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 166, 213, 0.18);
@@ -83,16 +87,19 @@
     .pulse-badge {
       animation: bounceBadge 2s infinite ease-in-out;
     }
+
+    .logo-glow {
+      filter: drop-shadow(0 0 18px rgba(255, 215, 0, 0.45));
+    }
   </style>
 </head>
 <body class="font-sans antialiased selection:bg-girlyPink selection:text-white w-full">
 
   <!-- Navbar -->
-  <nav class="sticky top-0 z-40 w-full glass-card border-b border-white/10 px-4 sm:px-6 py-3.5 flex items-center justify-between">
-    <div class="flex items-center gap-2 sm:gap-3">
-      <div class="h-9 w-9 sm:h-10 sm:w-10 rounded-xl bg-gradient-to-tr from-girlyPink to-arenaYellow flex items-center justify-center text-black font-extrabold text-lg sm:text-xl shadow-lg shrink-0">
-        🎰
-      </div>
+  <nav class="sticky top-0 z-40 w-full glass-card border-b border-white/10 px-4 sm:px-6 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-2.5 sm:gap-3">
+      <!-- Navbar Brand Logo -->
+      <img src="dp.jpg" alt="Cash Arena Logo" class="h-10 w-10 sm:h-11 sm:w-11 rounded-full object-cover border-2 border-arenaYellow shadow-md shrink-0" />
       <div>
         <span class="font-heading font-black text-xl sm:text-2xl tracking-wider text-arenaYellow text-glow-yellow">CASH</span>
         <span class="font-heading font-bold text-xl sm:text-2xl tracking-wider text-girlyPink text-glow-pink">ARENA</span>
@@ -111,8 +118,18 @@
   </nav>
 
   <!-- Hero Section -->
-  <header class="relative px-4 sm:px-6 pt-10 sm:pt-16 pb-14 max-w-5xl mx-auto text-center flex flex-col items-center w-full">
-    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-card border border-girlyPink/40 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-girlyPinkSoft mb-5">
+  <header class="relative px-4 sm:px-6 pt-8 sm:pt-14 pb-14 max-w-5xl mx-auto text-center flex flex-col items-center w-full">
+    <!-- Big Logo Showcase -->
+    <div class="relative mb-6">
+      <div class="w-32 h-32 sm:w-44 sm:h-44 rounded-full p-1 bg-gradient-to-tr from-arenaYellow via-girlyPink to-arenaYellow logo-glow">
+        <img src="dp.jpg" alt="Cash Arena Online Casino" class="w-full h-full object-cover rounded-full" />
+      </div>
+      <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-black/80 px-3 py-1 rounded-full border border-arenaYellow text-[10px] sm:text-xs font-bold text-arenaYellow uppercase tracking-wider whitespace-nowrap">
+        Official Mascot
+      </div>
+    </div>
+
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-card border border-girlyPink/40 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-girlyPinkSoft mb-4">
       ✨ 24/7 Instant Reloads & Payouts ✨
     </div>
 
@@ -122,7 +139,7 @@
     </h1>
 
     <p class="mt-4 sm:mt-6 text-sm sm:text-lg text-pink-100/80 max-w-2xl font-normal leading-relaxed px-2">
-      Welcome babe to <strong class="text-arenaYellow">Cash Arena</strong>! Enjoy top sweepstakes, high cashout rates, and lightning-fast withdrawals guaranteed.
+      Welcome to <strong class="text-arenaYellow">Cash Arena</strong>! Enjoy top sweepstakes, generous deposit boosts, and guaranteed 15-minute withdrawals.
     </p>
 
     <!-- Highlight Metrics -->
@@ -287,10 +304,14 @@
 
   <!-- Footer -->
   <footer class="text-center py-8 text-xs text-gray-400 border-t border-white/10 px-4 mb-20 sm:mb-0">
-    <p>© 2026 <strong class="text-arenaYellow">Cash Arena</strong>. All rights reserved. 18+ Only.</p>
+    <div class="flex items-center justify-center gap-2 mb-3">
+      <img src="dp.jpg" alt="Cash Arena" class="h-6 w-6 rounded-full object-cover" />
+      <span class="font-heading font-bold text-arenaYellow">Cash Arena Online Casino</span>
+    </div>
+    <p>© 2026 Cash Arena. All rights reserved. 18+ Only.</p>
   </footer>
 
-  <!-- Floating Messenger Widget (Fully Mobile Safe) -->
+  <!-- Floating Messenger Widget -->
   <div class="fixed bottom-4 right-3 sm:bottom-6 sm:right-6 z-50 flex items-center gap-2 sm:gap-3 max-w-[calc(100vw-24px)]">
     <!-- Pop Badge -->
     <a href="https://www.facebook.com/playcasharena" target="_blank" class="pulse-badge glass-card px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-girlyPink shadow-lg flex items-center gap-1.5 sm:gap-2 active:scale-95 transition shrink">
@@ -301,7 +322,7 @@
     </a>
 
     <!-- Messenger Button -->
-    <a href="https://www.facebook.com/playcasharena" target="_blank" aria-label="Messenger" class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-girlyPink to-[#0084FF] flex items-center justify-center text-white shadow-xl active:scale-90 transition duration-200 neon-border-pink shrink-0">
+    <a href="https://www.facebook.com/playcasharena" target="_blank" aria-label="Messenger" class="w-12 h-12 sm:h-14 sm:w-14 rounded-full bg-gradient-to-tr from-girlyPink to-[#0084FF] flex items-center justify-center text-white shadow-xl active:scale-90 transition duration-200 neon-border-pink shrink-0">
       <i class="fa-brands fa-facebook-messenger text-xl sm:text-2xl"></i>
     </a>
   </div>
