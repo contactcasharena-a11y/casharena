@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cash Arena | Play, Win & Instant Cashout</title>
+  
+  <!-- Google Fonts & Tailwind CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@600;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            arenaYellow: '#FFD700',
+            arenaYellowLight: '#FFF066',
+            girlyPink: '#FF2E93',
+            girlyPinkSoft: '#FFA6D5',
+            girlyPurple: '#8A2BE2',
+            darkBg: '#0B0612',
+            cardBg: 'rgba(28, 16, 44, 0.75)'
+          },
+          fontFamily: {
+            heading: ['Outfit', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #0b0612;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(255, 46, 147, 0.22) 0px, transparent 50%),
+        radial-gradient(at 100% 10%, rgba(255, 215, 0, 0.18) 0px, transparent 50%),
+        radial-gradient(at 50% 100%, rgba(138, 43, 226, 0.25) 0px, transparent 50%);
+      color: #FFFFFF;
+      overflow-x: hidden;
+    }
+
+    .neon-border-pink {
+      box-shadow: 0 0 20px rgba(255, 46, 147, 0.35);
+    }
+
+    .neon-border-yellow {
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+    }
+
+    .text-glow-yellow {
+      text-shadow: 0 0 16px rgba(255, 215, 0, 0.6);
+    }
+
+    .text-glow-pink {
+      text-shadow: 0 0 16px rgba(255, 46, 147, 0.7);
+    }
+
+    .glass-card {
+      background: rgba(28, 16, 44, 0.65);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 166, 213, 0.18);
+    }
+
+    .glass-card:hover {
+      border-color: rgba(255, 215, 0, 0.6);
+      transform: translateY(-4px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @keyframes bounceBadge {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    .pulse-badge {
+      animation: bounceBadge 2s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-girlyPink selection:text-white">
+
+  <!-- Navbar -->
+  <nav class="sticky top-0 z-40 w-full glass-card border-b border-white/10 px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="h-10 w-10 rounded-2xl bg-gradient-to-tr from-girlyPink to-arenaYellow flex items-center justify-center text-black font-extrabold text-xl shadow-lg">
+        🎰
+      </div>
+      <div>
+        <span class="font-heading font-black text-2xl tracking-wider text-arenaYellow text-glow-yellow">CASH</span>
+        <span class="font-heading font-bold text-2xl tracking-wider text-girlyPink text-glow-pink">ARENA</span>
+      </div>
+    </div>
+    
+    <div class="hidden md:flex items-center gap-8 font-medium text-sm text-gray-200">
+      <a href="#games" class="hover:text-arenaYellow transition">Games</a>
+      <a href="#bonuses" class="hover:text-girlyPinkSoft transition">Promotions</a>
+      <a href="#rules" class="hover:text-arenaYellow transition">Rules & Payouts</a>
+    </div>
+
+    <a href="https://www.facebook.com/playcasharena" target="_blank" class="bg-gradient-to-r from-arenaYellow to-girlyPink text-black font-bold px-5 py-2.5 rounded-full text-sm uppercase tracking-wider hover:opacity-95 shadow-md hover:scale-105 transition duration-200">
+      Play Now 💖
+    </a>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="relative px-6 pt-16 pb-20 max-w-6xl mx-auto text-center flex flex-col items-center">
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-girlyPink/40 text-xs font-semibold uppercase tracking-widest text-girlyPinkSoft mb-6">
+      ✨ 24/7 Instant Reloads & Payouts ✨
+    </div>
+
+    <h1 class="font-heading text-4xl sm:text-6xl md:text-7xl font-black leading-tight max-w-4xl">
+      The Cutest & Most Rewarding <br class="hidden sm:inline" />
+      <span class="text-arenaYellow text-glow-yellow">Casino Arena</span> <span class="text-girlyPink text-glow-pink">in Town</span>
+    </h1>
+
+    <p class="mt-6 text-base sm:text-lg text-pink-100/80 max-w-2xl font-normal leading-relaxed">
+      Welcome babe to <strong class="text-arenaYellow">Cash Arena</strong>! Experience high-payout slots, sweepstakes, exclusive games, and lightning-fast cashouts delivered directly to you.
+    </p>
+
+    <!-- Highlight Metrics -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-4xl mt-12 text-left">
+      <div class="glass-card p-4 rounded-2xl border-l-4 border-l-arenaYellow">
+        <div class="text-xs uppercase font-bold text-girlyPinkSoft tracking-wide">Sign Up Deal</div>
+        <div class="text-2xl font-black text-arenaYellow mt-1">100% Match</div>
+      </div>
+      <div class="glass-card p-4 rounded-2xl border-l-4 border-l-girlyPink">
+        <div class="text-xs uppercase font-bold text-girlyPinkSoft tracking-wide">Fast Cash Out</div>
+        <div class="text-2xl font-black text-white mt-1">⚡ 15 Mins</div>
+      </div>
+      <div class="glass-card p-4 rounded-2xl border-l-4 border-l-arenaYellow">
+        <div class="text-xs uppercase font-bold text-girlyPinkSoft tracking-wide">Referral Bonus</div>
+        <div class="text-2xl font-black text-arenaYellow mt-1">100% Boost</div>
+      </div>
+      <div class="glass-card p-4 rounded-2xl border-l-4 border-l-girlyPink">
+        <div class="text-xs uppercase font-bold text-girlyPinkSoft tracking-wide">Payout Guarantee</div>
+        <div class="text-2xl font-black text-white mt-1">Compensated</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Promotions & Bonuses Section -->
+  <section id="bonuses" class="px-6 py-16 max-w-6xl mx-auto">
+    <div class="text-center mb-12">
+      <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-arenaYellow">VIP Bonuses & Sweet Perks 💎</h2>
+      <p class="text-girlyPinkSoft text-sm sm:text-base mt-2">More credits, more spins, and nonstop winning energy!</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Card 1 -->
+      <div class="glass-card p-8 rounded-3xl relative overflow-hidden flex flex-col justify-between group">
+        <div class="absolute -right-6 -bottom-6 text-7xl opacity-10 group-hover:scale-125 transition">🎁</div>
+        <div>
+          <span class="bg-girlyPink/20 text-girlyPink text-xs font-bold px-3 py-1.5 rounded-full border border-girlyPink/40">WELCOME SPECIAL</span>
+          <h3 class="font-heading text-2xl font-black mt-4 text-arenaYellow">100% Sign-Up Bonus</h3>
+          <p class="mt-3 text-sm text-gray-200 leading-relaxed">
+            Double your bankroll right from your very first deposit! Start spinning with 2x power on any game you pick.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-white/10 text-xs text-girlyPinkSoft font-medium">Valid for all new members</div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="glass-card p-8 rounded-3xl relative overflow-hidden flex flex-col justify-between border-arenaYellow/40 neon-border-yellow group">
+        <div class="absolute -right-6 -bottom-6 text-7xl opacity-10 group-hover:scale-125 transition">🔥</div>
+        <div>
+          <span class="bg-arenaYellow/20 text-arenaYellow text-xs font-bold px-3 py-1.5 rounded-full border border-arenaYellow/40">RELOAD SPECIALS</span>
+          <h3 class="font-heading text-2xl font-black mt-4 text-white">50% & 20% Boosts</h3>
+          <ul class="mt-3 space-y-2 text-sm text-gray-200">
+            <li class="flex items-center gap-2">🌸 <strong>50% Bonus</strong> on deposits until your first cash out.</li>
+            <li class="flex items-center gap-2">🌸 <strong>20% Bonus</strong> on all reloads of $10 or above afterwards.</li>
+          </ul>
+        </div>
+        <div class="mt-6 pt-4 border-t border-white/10 text-xs text-arenaYellow font-medium">Automatic credit on deposit</div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="glass-card p-8 rounded-3xl relative overflow-hidden flex flex-col justify-between group">
+        <div class="absolute -right-6 -bottom-6 text-7xl opacity-10 group-hover:scale-125 transition">👭</div>
+        <div>
+          <span class="bg-girlyPink/20 text-girlyPink text-xs font-bold px-3 py-1.5 rounded-full border border-girlyPink/40">GIRL SQUAD & BUDDIES</span>
+          <h3 class="font-heading text-2xl font-black mt-4 text-arenaYellow">100% Referral Bonus</h3>
+          <p class="mt-3 text-sm text-gray-200 leading-relaxed">
+            Invite your besties to Cash Arena! You earn 100% referral reward for every eligible friend you bring in.
+          </p>
+          <div class="mt-4 bg-black/40 p-3 rounded-xl border border-girlyPink/30 text-xs">
+            💸 <span class="font-bold text-girlyPinkSoft">Referral Range:</span> Min <strong>$50</strong> - Max <strong>$100</strong> per friend!
+          </div>
+        </div>
+        <div class="mt-6 pt-4 border-t border-white/10 text-xs text-girlyPinkSoft font-medium">No referral limits</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Games Section -->
+  <section id="games" class="px-6 py-16 max-w-6xl mx-auto">
+    <div class="text-center mb-12">
+      <div class="inline-block text-xs uppercase tracking-widest text-arenaYellow font-bold mb-2">HOTTEST CASINO PICKS</div>
+      <h2 class="font-heading text-3xl sm:text-5xl font-black text-white">
+        Games <span class="text-girlyPink text-glow-pink">We Offer</span>
+      </h2>
+      <p class="text-gray-300 text-sm sm:text-base mt-2">Pick your favourite platform, load up your balance and chase the jackpot!</p>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+      <!-- Game Cards -->
+      <div class="glass-card p-5 rounded-2xl flex flex-col items-center justify-center text-center gap-3">
+        <span class="text-2xl">✨</span>
+        <span class="font-heading font-bold text-white text-base">Orion Stars</span>
+      </div>
+      <div class="glass-card p-5 rounded-2xl flex flex-col items-center justify-center text-center gap-3 border-girlyPink/30">
+        <span class="text-2xl">✨</span>
+        <span class="font-heading font-bold text-arenaYellow text-base">Juwa</span>
+      </div>
+      <div class="glass-card p-5 rounded-2xl flex flex-col items-center justify-center text-center gap-3">
+        <span class="text-2xl">✨</span>
+        <span class="font-heading font-bold text-white text-base">Game Vault</span>
+      </div>
+      <div class="glass-card p-5 rounded-2xl flex flex-col items-center justify-center text-center gap-3 border-girlyPink/30">
+        <span class="text-2xl">✨</span>
+        <span class="font-heading font-bold text-arenaYellow text-base">Vegas Sweeps</span>
+      </div>
+      <div class="glass-card p-5 rounded-2xl flex flex-col items-center justify-center text-center gap-3">
+        <span class="text-2xl">✨</span>
+        <span class="font-heading font-bold text-white text-base">Fire Kirin</span>
+      </div>
+      <div class="glass-card p-5 rounded-2xl flex flex-col items-center justify-center text-center gap-3">
+        <span class="text-2xl">✨</span>
+        <span class="font-heading font-bold text-arenaYellow text-base">Panda Master</span>
+      </div>
+      <div class="glass-card p-5 rounded-2xl flex flex-col items-center justify-center text-center gap-3 border-girlyPink/30">
+        <span class="text-2xl">✨</span>
+        <span class="font-heading font-bold text-white text-base">Milky Way</span>
+      </div>
+      <div class="glass-card p-5 rounded-2xl flex flex-col items-center justify-center text-center gap-3">
+        <span class="text-2xl">✨</span>
+        <span class="font-heading font-bold text-arenaYellow text-base">Vblink</span>
+      </div>
+      <div class="glass-card p-5 rounded-2xl flex flex-col items-center justify-center text-center gap-3 border-girlyPink/30">
+        <span class="text-2xl">✨</span>
+        <span class="font-heading font-bold text-white text-base">Ultra Panda</span>
+      </div>
+      <div class="glass-card p-5 rounded-2xl flex flex-col items-center justify-center text-center gap-3">
+        <span class="text-2xl">✨</span>
+        <span class="font-heading font-bold text-arenaYellow text-base">E-Game</span>
+      </div>
+      <div class="glass-card p-5 rounded-2xl flex flex-col items-center justify-center text-center gap-3 border-girlyPink/30">
+        <span class="text-2xl">✨</span>
+        <span class="font-heading font-bold text-white text-base">Orion Strike</span>
+      </div>
+      <div class="glass-card p-5 rounded-2xl flex flex-col items-center justify-center text-center gap-3">
+        <span class="text-2xl">✨</span>
+        <span class="font-heading font-bold text-arenaYellow text-base">Juwa 2.0</span>
+      </div>
+      <div class="glass-card p-5 rounded-2xl flex flex-col items-center justify-center text-center gap-3 border-girlyPink/30">
+        <span class="text-2xl">✨</span>
+        <span class="font-heading font-bold text-white text-base">Mr. All in One</span>
+      </div>
+      <div class="glass-card p-5 rounded-2xl flex flex-col items-center justify-center text-center gap-3">
+        <span class="text-2xl">✨</span>
+        <span class="font-heading font-bold text-arenaYellow text-base">Noble</span>
+      </div>
+      <div class="glass-card p-5 rounded-2xl flex flex-col items-center justify-center text-center gap-3 border-arenaYellow/50">
+        <span class="text-2xl">✨</span>
+        <span class="font-heading font-bold text-arenaYellowLight text-base">Cash Machine</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Payout & Rules Section -->
+  <section id="rules" class="px-6 py-16 max-w-5xl mx-auto">
+    <div class="glass-card p-8 sm:p-12 rounded-3xl border border-girlyPink/30 neon-border-pink">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="space-y-4">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-arenaYellow/20 text-arenaYellow text-xs font-bold tracking-wider">
+            ⏱️ 15-MINUTE GUARANTEE
+          </div>
+          <h2 class="font-heading text-3xl sm:text-4xl font-black text-white">
+            Honest, Transparent & <span class="text-arenaYellow">Ultra Fast Payouts</span>
+          </h2>
+          <p class="text-gray-300 text-sm sm:text-base leading-relaxed max-w-xl">
+            We value your time and wins! Our official cash out time is strictly within <strong class="text-white">15 minutes</strong>. If your withdrawal isn't settled within that 15-minute window, <strong class="text-girlyPinkSoft">we compensate you!</strong>
+          </p>
+        </div>
+
+        <div class="w-full md:w-auto flex-shrink-0 flex flex-col gap-3 min-w-[280px]">
+          <div class="bg-black/50 p-4 rounded-2xl border border-white/10">
+            <span class="text-xs text-girlyPinkSoft uppercase font-semibold">Minimum Cashout</span>
+            <div class="text-lg font-bold text-white mt-1">$20 <span class="text-xs font-normal text-gray-400">(&amp; 2x of recharge amount)</span></div>
+          </div>
+          <div class="bg-black/50 p-4 rounded-2xl border border-white/10">
+            <span class="text-xs text-arenaYellow uppercase font-semibold">Maximum Cashout</span>
+            <div class="text-lg font-bold text-arenaYellow mt-1">$500 <span class="text-xs font-normal text-gray-400">per game</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center py-10 text-xs text-gray-400 border-t border-white/10">
+    <p>© 2026 <strong class="text-arenaYellow">Cash Arena</strong>. All rights reserved. Play responsibly.</p>
+  </footer>
+
+  <!-- Floating Messenger Widget -->
+  <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3">
+    <!-- Pop Badge -->
+    <a href="https://www.facebook.com/playcasharena" target="_blank" class="pulse-badge glass-card px-4 py-2 rounded-full border border-girlyPink shadow-lg flex items-center gap-2 group hover:scale-105 transition cursor-pointer">
+      <span class="h-2 w-2 rounded-full bg-emerald-400 animate-ping"></span>
+      <span class="font-heading text-sm font-bold text-arenaYellow group-hover:text-girlyPinkSoft tracking-wide whitespace-nowrap">
+        Set me up! 💬
+      </span>
+    </a>
+
+    <!-- Messenger Circle Button -->
+    <a href="https://www.facebook.com/playcasharena" target="_blank" aria-label="Messenger" class="w-14 h-14 rounded-full bg-gradient-to-tr from-girlyPink to-[#0084FF] flex items-center justify-center text-white shadow-xl hover:scale-110 active:scale-95 transition duration-300 neon-border-pink">
+      <i class="fa-brands fa-facebook-messenger text-2xl"></i>
+    </a>
+  </div>
+
+</body>
+</html>
