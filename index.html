@@ -109,6 +109,7 @@
     <div class="hidden md:flex items-center gap-8 font-medium text-sm text-gray-200">
       <a href="#games" class="hover:text-arenaYellow transition">Games</a>
       <a href="#bonuses" class="hover:text-girlyPinkSoft transition">Promotions</a>
+      <a href="#leaderboard" class="hover:text-arenaYellow transition">Leaderboard</a>
       <a href="#rules" class="hover:text-arenaYellow transition">Rules & Payouts</a>
     </div>
 
@@ -272,6 +273,24 @@
     </div>
   </section>
 
+  <!-- Leaderboard Section -->
+  <section id="leaderboard" class="px-4 sm:px-6 py-10 sm:py-14 max-w-4xl mx-auto w-full">
+    <div class="glass-card p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-arenaYellow/40 neon-border-yellow">
+      <div class="text-center mb-6 sm:mb-8">
+        <span class="bg-arenaYellow/20 text-arenaYellow text-[11px] font-extrabold px-3.5 py-1.5 rounded-full border border-arenaYellow/40 uppercase tracking-widest">🏆 Top Champions</span>
+        <h2 class="font-heading text-2xl sm:text-4xl font-black text-white mt-3">
+          Live <span class="text-arenaYellow text-glow-yellow">Leaderboard</span>
+        </h2>
+        <p class="text-girlyPinkSoft text-xs sm:text-sm mt-1">Updated automatically with our top players and winners!</p>
+      </div>
+
+      <!-- Leaderboard List Container -->
+      <div id="leaderboard-container" class="space-y-3">
+        <!-- Rows will be populated and dynamically sorted by JavaScript below -->
+      </div>
+    </div>
+  </section>
+
   <!-- Payout & Rules Section -->
   <section id="rules" class="px-4 sm:px-6 py-10 sm:py-14 max-w-5xl mx-auto w-full">
     <div class="glass-card p-6 sm:p-10 rounded-2xl sm:rounded-3xl border border-girlyPink/30 neon-border-pink">
@@ -326,6 +345,62 @@
       <i class="fa-brands fa-facebook-messenger text-xl sm:text-2xl"></i>
     </a>
   </div>
+
+  <!-- Leaderboard Auto-Sort Script -->
+  <script>
+    // 👇 AAP YAHAN SE APNE PLAYERS AUR POINTS CHANGE KAR SAKTE HAIN (GITHUB PE EDITS KARTAY WAQT)
+    // Jaise hi aap points barhayenge, code automatically highest points wale ko sabse upar le ayega!
+    const leaderboardData = [
+      { name: "E.J. Mckinney", points: 475 },
+      { name: "Wayford Franks", points: 10 },
+      { name: "Kristi Gentry", points: 10 },
+      { name: "Debra Shilling", points: 5 }
+    ];
+
+    function renderLeaderboard() {
+      // Points ki base pe descending order (highest se lowest) mein sort karna
+      leaderboardData.sort((a, b) => b.points - a.points);
+
+      const container = document.getElementById('leaderboard-container');
+      container.innerHTML = '';
+
+      leaderboardData.forEach((player, index) => {
+        let rankBadge = '';
+        let borderStyle = 'border-white/10 bg-black/40';
+
+        // Top 3 ke liye special styling (Gold, Silver, Bronze vibes)
+        if (index === 0) {
+          rankBadge = '<span class="bg-arenaYellow text-black font-ext500 px-2.5 py-0.5 rounded-full text-xs shadow">🥇 1st</span>';
+          borderStyle = 'border-arenaYellow/60 bg-arenaYellow/10 neon-border-yellow';
+        } else if (index === 1) {
+          rankBadge = '<span class="bg-gray-300 text-black font-extrabold px-2.5 py-0.5 rounded-full text-xs">🥈 2nd</span>';
+          borderStyle = 'border-gray-300/40 bg-white/5';
+        } else if (index === 2) {
+          rankBadge = '<span class="bg-amber-600 text-white font-extrabold px-2.5 py-0.5 rounded-full text-xs">🥉 3rd</span>';
+          borderStyle = 'border-amber-600/40 bg-white/5';
+        } else {
+          rankBadge = `<span class="text-gray-400 font-bold text-xs px-2">#${index + 1}</span>`;
+        }
+
+        const rowHTML = `
+          <div class="glass-card p-4 rounded-xl border ${borderStyle} flex items-center justify-between transition hover:scale-[1.01]">
+            <div class="flex items-center gap-3">
+              ${rankBadge}
+              <span class="font-heading font-bold text-white text-sm sm:text-base">${player.name}</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-arenaYellow font-black text-base sm:text-lg">${player.points}</span>
+              <span class="text-xs text-girlyPinkSoft uppercase font-medium">points</span>
+            </div>
+          </div>
+        `;
+        container.innerHTML += rowHTML;
+      });
+    }
+
+    // Page load hone par render chalana
+    window.addEventListener('DOMContentLoaded', renderLeaderboard);
+  </script>
 
 </body>
 </html>
